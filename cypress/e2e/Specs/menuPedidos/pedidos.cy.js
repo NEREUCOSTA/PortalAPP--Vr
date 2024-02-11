@@ -1,14 +1,31 @@
-import pedidos from '../../Pages/menuPedido/Pedidos'
+import pedidos from '../../Pages/menuPedido/Pedidos';
 describe('Menu Pedidos', () => {
-   beforeEach(() => {
-    cy.login();
-   })
-   it('Painel Disponibilizacao', () => {
-       cy.wait(15000);
-       cy.visit('https://app-portalautomatizadosec4-prd.azurewebsites.net/recharge-order-list-operator');
-       pedidos.clicarCampoStatus();
-       pedidos.clicarBotaoFiltrar();
-       //pedidos.clicarPainelDisponibilizacao();
-       //pedidos.clicarMenuPedidos();
-   })
-})
+	beforeEach(() => {
+		cy.login();
+	});
+	it('Solicitar Logistica', () => {
+		cy.wait(5000);
+		cy.visit(
+			'https://app-portalautomatizadosec4-prd.azurewebsites.net/recharge-order-list-operator'
+		);
+		cy.viewport(1920, 1080);
+		pedidos.clicarCampoStatus();
+		pedidos.clicarBotaoFiltrar();
+		pedidos.selecionaPedidoDaOperadora();
+		pedidos.aumentaNumeroDePedidosPorPagina();
+		pedidos.solicitaLogistica();
+		pedidos.preencherFormularioLogística();
+	});
+	it('Tratativa de inconsistência', () => {
+		cy.wait(5000);
+		cy.visit(
+			'https://app-portalautomatizadosec4-prd.azurewebsites.net/recharge-order-list-operator'
+		);
+		cy.viewport(1920, 1080);
+		pedidos.clicarCampoStatus();
+		pedidos.clicarBotaoFiltrar();
+		pedidos.selecionaPedidoDaOperadora();
+		pedidos.selecionaSubmenuInconsistencia();
+		pedidos.realizaTrativaDeInconsistencia();
+	});
+});
