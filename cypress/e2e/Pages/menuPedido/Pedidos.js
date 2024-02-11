@@ -7,10 +7,21 @@ class Pedidos {
 	}
 
 	static clicarCampoStatus() {
+		//Seleciona status
 		cy.get(
 			'#tickets-table_length > .text-capitalize > .ng-select-container > .ng-value-container > .ng-input > input'
 		).click();
-		cy.get('[ng-reflect-ng-item-label="Aguardando compra"]').click();
+		cy.get(
+			'[ng-reflect-ng-item-label="Confirmado pela operadora/Conc"]'
+		).click();
+		// Seleciona grupo economico
+		cy.get(
+			':nth-child(1) > :nth-child(3) > #dropbox-order-filter > .text-capitalize > .ng-select-container'
+		).click();
+		cy.contains(
+			'span',
+			'prelease-associacao educacional pentagono / 49.205.616/0001-98'
+		).click();
 	}
 
 	static clicarBotaoFiltrar() {
@@ -28,7 +39,7 @@ class Pedidos {
 	}
 	static solicitaLogistica() {
 		cy.get(
-			':nth-child(1) > :nth-child(8) > .row > .col-md-12 > .custom-control'
+			':nth-child(2) > :nth-child(7) > .row > .col-md-12 > .custom-control > .custom-control-label'
 		).click();
 		cy.wait(1500);
 		cy.contains('button', 'Solicitar Logística').click();
@@ -37,7 +48,7 @@ class Pedidos {
 	static preencherFormularioLogística() {
 		cy.get(':nth-child(2) > .ng-select > .ng-select-container').click();
 		cy.get('[ng-reflect-ng-item-label=" JOÃO RAMALHO"]').click();
-		cy.get('.modal-footer > :nth-child(2)').click();
+		cy.get('.modal-footer > :nth-child(2)'); //Não clicar;
 	}
 
 	static selecionaSubmenuInconsistencia() {
