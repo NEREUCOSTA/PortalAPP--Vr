@@ -68,5 +68,21 @@ class Pedidos {
 		cy.get(':nth-child(3) > [aria-label="8"] > .btn-light').click();
 		cy.get('.next > .btn'); // Não colocar .click();
 	}
+	static inclusaoTED(){
+		cy.get(
+			'#tickets-table_length > .text-capitalize > .ng-select-container > .ng-value-container > .ng-input > input'
+		).click();
+		cy.get(
+			'[ng-reflect-ng-item-label="Confirmado pela operadora/Conc"]'
+		).click();
+		cy.get('#wrapper > div > div > recharge-order-list-operator > div > div > div > div.card.mt-n2 > div > div > div.row.mb-md-2.col-sm-12 > table > tr:nth-child(3) > th').click(); //operadora TED
+		cy.get(':nth-child(9) > .btn').click(); //ver itens
+		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click(); //ver pedido
+		cy.get('.btn-icon > .mdi').click(); //anexar pedido
+		cy.get('[ng-reflect-ng-item-label="TED"]').click();
+		cy.get('.modal-footer > .btn-primary').click();
+		cy.get('confirmation-modal > .modal-footer > .btn-primary').click();
+		cy.get('.btn-purple').click(); //Dados do pagamento - inclusao da TED.
+	}
 }
 export default Pedidos;
