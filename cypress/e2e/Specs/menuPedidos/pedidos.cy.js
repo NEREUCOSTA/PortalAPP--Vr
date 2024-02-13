@@ -35,7 +35,6 @@ describe('Menu Pedidos', () => {
 			'https://app-portalautomatizadosec4-prd.azurewebsites.net/recharge-order-list-operator'
 		);
 		cy.viewport(1920, 1080);	
-		pedidos.clicarBotaoFiltrar();
 		pedidos.inclusaoTED();
 	});
 });
