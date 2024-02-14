@@ -29,7 +29,7 @@ describe('Menu Pedidos', () => {
 		pedidos.realizaTrativaDeInconsistencia();
 	});
 
-	it.only('Inclusão de TED', () => {
+	it('Inclusão de TED', () => {
 		cy.wait(5000);
 		cy.visit(
 			'https://app-portalautomatizadosec4-prd.azurewebsites.net/recharge-order-list-operator'
