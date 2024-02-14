@@ -78,7 +78,7 @@ class Pedidos {
 		
 		//operadora TED
 		cy.get('.col-md-4 > .btn').click();
-		cy.get('#wrapper > div > div > recharge-order-list-operator > div > div > div > div.card.mt-n2 > div > div > div.row.mb-md-2.col-sm-12 > table > tr:nth-child(3) > th').contains('th.text-capitalize', 'BRB MOBILIDADE - ELETRÔNICO - Responsável VT: Pedro Antônio Campos Oliveira Cândido').click();
+		//cy.get('#wrapper > div > div > recharge-order-list-operator > div > div > div > div.card.mt-n2 > div > div > div.row.mb-md-2.col-sm-12 > table > tr:nth-child(3) > th').contains('th.text-capitalize', 'BRB MOBILIDADE - ELETRÔNICO - Responsável VT: Pedro Antônio Campos Oliveira Cândido').click();
 		cy.get(':nth-child(9) > .btn').click(); //ver itens
 		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click(); //ver pedido
 		cy.wait(10000);
