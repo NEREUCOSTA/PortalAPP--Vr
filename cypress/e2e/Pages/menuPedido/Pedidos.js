@@ -1,4 +1,4 @@
-class Pedidos {
+class Pedidos 
 	static clicarMenuPedidos() {
 		cy.get('.remixicon-stack-line').click();
 	}
@@ -27,13 +27,15 @@ class Pedidos {
 	static clicarBotaoFiltrar() {
 		cy.get('.col-md-4 > .btn').click();
 	}
-	static selecionaPedidoDaOperadora() {
-		cy.get(
-			'#wrapper > div > div > recharge-order-list-operator > div > div > div > div.card.mt-n2 > div > div > div.row.mb-md-2.col-sm-12 > table > tr:nth-child(1) > th'
-		).click();
+	static selecionaPedidoDaOperadora() 
+		cy.get('#tickets-table_length .ng-select-container input').click();
+
+		//cy.get(
+			//'#wrapper > div > div > recharge-order-list-operator > div > div > div > div.card.mt-n2 > div > div > div.row.mb-md-2.col-sm-12 > table > tr:nth-child(1) > th'
+		//).click();
 		cy.get(':nth-child(9) > .btn').click();
 		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click();
-	}
+	
 	static aumentaNumeroDePedidosPorPagina() {
 		cy.get('select[name="tickets-table_length"]').select('50');
 	}
@@ -78,7 +80,9 @@ class Pedidos {
 		//operadora TED
 		cy.get('.col-md-4 > .btn').click();
 		cy.wait(6000)
-		cy.get('#wrapper > div > div > recharge-order-list-operator > div > div > div > div.card.mt-n2 > div > div > div.row.mb-md-2.col-sm-12 > table > tr:nth-child(3) > th').contains('th.text-capitalize', 'BRB MOBILIDADE - ELETRÔNICO - Responsável VT: Pedro Antônio Campos Oliveira Cândido').click();
+		cy.get('#tickets-table_length .ng-select-container input').click();
+
+		//cy.get('#wrapper > div > div > recharge-order-list-operator > div > div > div > div.card.mt-n2 > div > div > div.row.mb-md-2.col-sm-12 > table > tr:nth-child(3) > th').contains('th.text-capitalize', 'BRB MOBILIDADE - ELETRÔNICO - Responsável VT: Pedro Antônio Campos Oliveira Cândido').click();
 		cy.get(':nth-child(9) > .btn').click(); //ver itens
 		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click(); //ver pedido
 		cy.wait(10000);
@@ -88,5 +92,5 @@ class Pedidos {
 		cy.get('.modal-footer > .btn-primary').click();
 		cy.get('.btn-purple').click(); //Dados do pagamento - inclusao da TED.
 	}
-}
+
 export default Pedidos;
