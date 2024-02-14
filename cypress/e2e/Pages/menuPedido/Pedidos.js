@@ -69,9 +69,8 @@ class Pedidos {
 		cy.get('.next > .btn'); // Não colocar .click();
 	}
 	static inclusaoTED(){
-		cy.get(
-			'#tickets-table_length > .text-capitalize > .ng-select-container > .ng-value-container > .ng-input > input'
-		).click();
+		cy.get('#tickets-table_length .ng-select-container input').click();
+
 		cy.get(
 			'[ng-reflect-ng-item-label="Confirmado pela operadora/Conc"]'
 		).click();
