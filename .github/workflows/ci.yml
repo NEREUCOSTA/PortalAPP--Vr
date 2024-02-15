@@ -20,10 +20,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run Cypress tests
-        run: npm run cypress:run
+        run: npx cypress run
 
   deploy-report:
     needs: cypress-run
@@ -34,4 +34,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./cypress/reports
+          publish_dir: ./cypress/reports/html
