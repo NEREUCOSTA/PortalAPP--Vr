@@ -1,6 +1,6 @@
 # .gitignore
 node_modules/
 
-reports/
-screenshots/
-videos/
+cypress/reports/*
+screenshots
+videos/*
