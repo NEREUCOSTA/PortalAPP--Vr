@@ -28,8 +28,10 @@ class Pedidos {
 		cy.get('.col-md-4 > .btn').click();
 	}
 	static selecionaPedidoDaOperadora() {
-		cy.get('app-root app-layout div div div recharge-order-list-operator div div div div table tr:nth-child(4) th')
-			.click();
+		// cy.get(
+		// 	'app-root app-layout div div div recharge-order-list-operator div div div div table tr:nth-child(4) th'
+		// ).click();
+		cy.get('tr > .text-capitalize').click();
 		cy.get(':nth-child(9) > .btn').click();
 		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click();
 	}
@@ -67,17 +69,17 @@ class Pedidos {
 		cy.get(':nth-child(3) > [aria-label="8"] > .btn-light').click();
 		cy.get('.next > .btn'); // Não colocar .click();
 	}
-	static inclusaoTED(){
+	static inclusaoTED() {
 		cy.get('#tickets-table_length .ng-select-container input').click();
 
 		cy.get(
 			'[ng-reflect-ng-item-label="Confirmado pela operadora/Conc"]'
 		).click();
-		
+
 		//operadora TED
 		cy.get('.col-md-4 > .btn').click();
-		cy.wait(6000)
-		cy.get('app-root app-layout div div div recharge-order-list-operator div div div div table tr:nth-child(4) th').click();
+		cy.wait(6000);
+		cy.get(':nth-child(3) > .text-capitalize').click();
 
 		cy.get(':nth-child(9) > .btn').click(); //ver itens
 		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click(); //ver pedido
