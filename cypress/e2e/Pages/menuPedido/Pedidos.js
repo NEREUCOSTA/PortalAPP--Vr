@@ -28,7 +28,8 @@ class Pedidos {
 		cy.get('.col-md-4 > .btn').click();
 	}
 	static selecionaPedidoDaOperadora() {
-		cy.get('/html/body/app-root/app-layout/div/div/div/recharge-order-list-operator/div/div/div/div[2]/div/div/div[2]/table/tr[4]/th').click();
+		cy.get('app-root app-layout div div div recharge-order-list-operator div div div div table tr:nth-child(4) th')
+			.click();
 		cy.get(':nth-child(9) > .btn').click();
 		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click();
 	}
@@ -76,7 +77,8 @@ class Pedidos {
 		//operadora TED
 		cy.get('.col-md-4 > .btn').click();
 		cy.wait(6000)
-		cy.get('/html/body/app-root/app-layout/div/div/div/recharge-order-list-operator/div/div/div/div[2]/div/div/div[2]/table/tr[4]/th').click();
+		cy.get('app-root app-layout div div div recharge-order-list-operator div div div div table tr:nth-child(4) th').click();
+
 		cy.get(':nth-child(9) > .btn').click(); //ver itens
 		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click(); //ver pedido
 		cy.wait(10000);
