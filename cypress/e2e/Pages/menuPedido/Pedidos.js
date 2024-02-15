@@ -28,9 +28,6 @@ class Pedidos {
 		cy.get('.col-md-4 > .btn').click();
 	}
 	static selecionaPedidoDaOperadora() {
-		// cy.get(
-		// 	'app-root app-layout div div div recharge-order-list-operator div div div div table tr:nth-child(4) th'
-		// ).click();
 		cy.get('tr > .text-capitalize').click();
 		cy.get(':nth-child(9) > .btn').click();
 		cy.get(':nth-child(1) > [width="140px"] > :nth-child(1) > a').click();

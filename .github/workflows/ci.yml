@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 21
+          node-version: 14
 
       - name: Install dependencies
         run: npm ci
@@ -27,6 +27,10 @@ jobs:
       - name: Running tests
         run: npx cypress run
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
