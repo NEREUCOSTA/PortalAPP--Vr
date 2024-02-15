@@ -1,38 +1,37 @@
-name: CI - Cypress Tests
+name: Cypress Tests
 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 jobs:
-  test:
+  cypress-run:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 21
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Running tests
-        run: npx cypress run
+      - name: Run Cypress tests
+        run: npm run cypress:run
 
-  deploy:
+  deploy-report:
+    needs: cypress-run
     runs-on: ubuntu-latest
-    needs: test
+    if: always()
     steps:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./cypress/reports/html
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./cypress/reports
